@@ -27,4 +27,5 @@ def cowin_data():
     l.reset_index(drop='index',inplace=True)
     pd.set_option('max_colwidth', 100)
     st.write(pd.DataFrame(l))           
-cowin_data()
+if __name__ == "__main__":
+    cowin_data()

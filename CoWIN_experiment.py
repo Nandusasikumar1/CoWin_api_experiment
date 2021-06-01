@@ -16,13 +16,17 @@ def cowin_data():
     return response
 def data_farame():
     response=cowin_data()
-    l=pd.DataFrame(columns=['Address','Pin','Dose1','Dose2','Min_age_limit','Vaccine','Fee_type'])
+    c=[]
     for i in response.json():
         for k in response.json()[i]:
-            l=pd.concat([l,pd.DataFrame([[k['name'],k['pincode'],k['available_capacity_dose1'],k['available_capacity_dose2'],k['min_age_limit'],k['vaccine'],k['fee_type']]],columns=['Address','Pin','Dose1','Dose2','Min_age_limit','Vaccine','Fee_type'])],ignore_index=True)
-    l.sort_values(by='Address',inplace=True)
-    l.reset_index(drop='index',inplace=True)
-    return l
+            c.append(k)
+    df=pd.DataFrame()
+    for i in c:
+        df=pd.concat([df,pd.DataFrame(i)],ignore_index=True)
+    df.drop_duplicates(subset='session_id',keep='first',inplace=True)
+    df.reset_index(drop='index',inplace=True)
+    df1=df[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]
+    return df1
 
 def show():
     st.set_page_config(page_title="Nandu's CoWin api experiment")

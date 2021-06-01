@@ -20,8 +20,7 @@ def data_frame():
     for i in response.json():
         for k in response.json()[i]:
             c.append(k)
-    df=pd.DataFrame(c)
-    return df
+    return c
 
 def show():
     st.set_page_config(page_title="Nandu's CoWin api experiment")
@@ -32,6 +31,5 @@ def show():
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    df1=data_frame()
-    st.write(df1)
+    st.dataframe(data_frame())
 show()

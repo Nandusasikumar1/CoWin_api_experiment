@@ -20,9 +20,13 @@ def data_farame():
     for i in response.json():
         for k in response.json()[i]:
             c.append(k)
-    df=pd.DataFrame()
+    df=pd.DataFrame(columns=['center_id', 'name', 'address', 'state_name', 'district_name',
+       'block_name', 'pincode', 'from', 'to', 'lat', 'long', 'fee_type',
+       'session_id', 'date', 'available_capacity_dose1',
+       'available_capacity_dose2', 'available_capacity', 'fee',
+       'min_age_limit', 'vaccine', 'slots'])
     for i in c:
-        df=pd.concat([df,pd.DataFrame(pd.DataFrame(i))],ignore_index=True)
+        df=pd.concat([df,pd.DataFrame(i)],ignore_index=True)
     df.drop_duplicates(subset='session_id',keep='first',inplace=True)
     df.reset_index(drop='index',inplace=True)
     df1=df[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]

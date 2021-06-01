@@ -33,5 +33,5 @@ def show():
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     df1=data_frame()
-    st.write(pd.DataFrame(data_frame))
+    st.write(df1)
 show()

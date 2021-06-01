@@ -3,7 +3,8 @@ import numpy as np
 import requests
 import streamlit as st
 def cowin_data():
-    file=pd.read_csv('https://raw.githubusercontent.com/Nandusasikumar1/CoWin_api_experiment/main/cowinkerala.csv')
+    file=pd.Dataframe({'district_id':[295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308],
+                      'districts':['Kasaragod','Thiruvananthapuram','Kannur','Kollam','Wayanad','Pathanamthitta','Alappuzha','Malappuram','Thrissur','Kottayam','Kozhikode','Idukki','Ernakulam','Palakkad']}
     st.set_page_config(page_title="Nandu's CoWIN api experiment")
     
     hide_streamlit_style = """

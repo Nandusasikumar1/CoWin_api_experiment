@@ -31,6 +31,5 @@ def show():
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    df=pd.DataFrame(data_frame())
-    st.table(df)
+    st.dataframe(data_frame(),width=2000,height=1500)
 show()

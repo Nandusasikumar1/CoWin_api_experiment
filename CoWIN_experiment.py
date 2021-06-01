@@ -24,7 +24,6 @@ def data_frame():
     return df
 
 def show():
-    
     st.set_page_config(page_title="Nandu's CoWin api experiment")
     hide_streamlit_style = """
     <style>
@@ -34,5 +33,5 @@ def show():
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     df1=data_frame()
-    st.write(pd.DataFrame(df1[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]))
+    st.write(pd.DataFrame(data_frame()))
 show()

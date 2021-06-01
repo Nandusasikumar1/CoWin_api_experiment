@@ -14,17 +14,17 @@ def cowin_data():
     dist_id=list(file[file['districts']==districts]['district_id'])[0]
     response=requests.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?',params={'district_id':str(dist_id),'date':date})
     return response
-def data_farame():
+def data_frame():
     response=cowin_data()
     c=[]
     for i in response.json():
         for k in response.json()[i]:
             c.append(k)
     df=pd.DataFrame(c)
-    df1=df[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]
-    return df1
+    return df
 
 def show():
+    df1=data_frame()
     st.set_page_config(page_title="Nandu's CoWin api experiment")
     hide_streamlit_style = """
     <style>
@@ -33,5 +33,5 @@ def show():
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    st.write(pd.DataFrame(data_farame()))           
+    st.write(pd.DataFrame(df1[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]))
 show()

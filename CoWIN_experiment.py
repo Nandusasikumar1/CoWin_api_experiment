@@ -22,7 +22,7 @@ def data_farame():
             c.append(k)
     df=pd.DataFrame()
     for i in c:
-        df=pd.concat([df,pd.DataFrame(i)],ignore_index=True)
+        df=pd.concat([df,pd.DataFrame(pd.DataFrame(i))],ignore_index=True)
     df.drop_duplicates(subset='session_id',keep='first',inplace=True)
     df.reset_index(drop='index',inplace=True)
     df1=df[['center_id','name','pincode','fee_type','vaccine','min_age_limit']]

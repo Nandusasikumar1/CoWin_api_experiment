@@ -2,10 +2,14 @@ import pandas as pd
 import numpy as np 
 import requests
 import streamlit as st
-def cowin_data():
-    file=pd.Dataframe({'district_id':[295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308],
+def read():
+    file1=pd.DataFrame({'district_id':[295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308],
                       'districts':['Kasaragod','Thiruvananthapuram','Kannur','Kollam','Wayanad','Pathanamthitta','Alappuzha','Malappuram','Thrissur','Kottayam','Kozhikode','Idukki','Ernakulam','Palakkad']
-                      }
+                      })
+    return file1
+def cowin_data():
+    file=read()
+    st.set_page_config(page_title="Nandu's CoWin api experiment")
     
     hide_streamlit_style = """
     <style>
@@ -28,5 +32,4 @@ def cowin_data():
     l.reset_index(drop='index',inplace=True)
     pd.set_option('max_colwidth', 100)
     st.write(pd.DataFrame(l))           
-if __name__ == "__main__":
-    cowin_data()
+cowin_data()

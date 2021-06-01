@@ -4,7 +4,7 @@ import requests
 import streamlit as st
 def cowin_data():
     file=pd.read_csv('https://raw.githubusercontent.com/Nandusasikumar1/CoWin_api_experiment/main/cowinkerala.csv')
-    st.set_page_config(page_title="Nandu's CoWin api experiment")
+    st.set_page_config(page_title="Nandu's CoWWin api experiment")
     
     hide_streamlit_style = """
     <style>

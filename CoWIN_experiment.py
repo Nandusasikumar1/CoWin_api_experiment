@@ -15,7 +15,6 @@ def cowin_data():
     response=requests.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?',params={'district_id':str(dist_id),'date':date})
     return response
 def data_frame():
-    st.set_page_config(page_title="Nandu's CoWin api experiment")
     hide_streamlit_style = """
     <style>
     #MainMenu {visibility: hidden;}

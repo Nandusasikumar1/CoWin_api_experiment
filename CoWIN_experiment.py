@@ -20,9 +20,6 @@ def data_frame():
     for i in response.json():
         for k in response.json()[i]:
             c.append(k)
-    return c
-
-def show():
     st.set_page_config(page_title="Nandu's CoWin api experiment")
     hide_streamlit_style = """
     <style>
@@ -31,5 +28,5 @@ def show():
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    st.write(st.dataframe(data_frame()))
-show()
+    st.dataframe(c)
+data_frame()

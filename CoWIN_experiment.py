@@ -25,6 +25,5 @@ def cowin_data():
             l=pd.concat([l,pd.DataFrame([[k['name'],k['pincode'],k['available_capacity_dose1'],k['available_capacity_dose2'],k['min_age_limit'],k['vaccine'],k['fee_type']]],columns=['Address','Pin','Dose1','Dose2','Min_age_limit','Vaccine','Fee_type'])],ignore_index=True)
     l.sort_values(by='Address',inplace=True)
     l.reset_index(drop='index',inplace=True)
-    pd.set_option('max_colwidth', 100)
     st.write(pd.DataFrame(l))           
 cowin_data()

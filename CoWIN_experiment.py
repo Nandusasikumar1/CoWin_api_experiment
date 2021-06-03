@@ -31,5 +31,5 @@ def show():
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-    st.dataframe(data_frame())
+    st.write(data_frame())
 show()

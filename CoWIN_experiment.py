@@ -32,6 +32,8 @@ class cowin():
         </style>
         """
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-        st.dataframe(self.data_frame())
+        st.write(pd.DataFrame({
+            'first column': [1, 2, 3, 4],
+            'second column': [10, 20, 30, 40] }))
 if __name__=='__main__':
     cowin().show()

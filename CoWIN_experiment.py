@@ -32,6 +32,8 @@ class cowin():
             st.write('No center available')
 
     def show(self):
+        df=pd.DataFrame(self.cowin_data())
+        df.rename(columns={'available_capacity_dose1':'dose1','available_capacity_dose2':'dose2'},inplace=True)
         st.set_page_config(page_title="Nandu's CoWin api experiment")
         hide_streamlit_style = """
         <style>
@@ -40,8 +42,7 @@ class cowin():
         </style>
         """
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-        df=pd.DataFrame(self.cowin_data())
-        df.rename(columns={'available_capacity_dose1':'dose1','available_capacity_dose2':'dose2'},inplace=True)
+       
         st.write(df)
 if __name__=='__main__':
     cowin().show()

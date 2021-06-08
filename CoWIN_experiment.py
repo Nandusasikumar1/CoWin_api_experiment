@@ -42,14 +42,7 @@ class cowin():
             st.write('No center available')
 
     def show(self):
-        st.set_page_config(page_title="Nandu's CoWin api experiment")
-        hide_streamlit_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        </style>
-        """
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+  
         st.write(self.cowin_data())
 if __name__=='__main__':
     cowin().show()

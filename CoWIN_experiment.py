@@ -10,7 +10,7 @@ class cowin():
         return file1
     def cowin_data(self):
         file=self.read()
-        date=st.text_input('Enter date(mm-dd-yyyy)',value='08-06-2021',key=2)
+        date=st.text_input('Enter date(dd-mm-yyyy)',value='08-06-2021',key=2)
         districts=st.selectbox('Select District',list(file['districts']))
         dist_id=list(file[file['districts']==districts]['district_id'])[0]
         response=requests.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?',params={'district_id':str(dist_id),'date':date})
@@ -52,6 +52,6 @@ class cowin():
         </style>
         """
         st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-        st.write(self.cowin_data())
+        st.dataframe([self.cowin_data()])
 if __name__=='__main__':
     cowin().show()
